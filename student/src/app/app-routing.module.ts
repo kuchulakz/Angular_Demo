@@ -5,7 +5,7 @@ import { ViewStudentComponent } from './Component/view-student/view-student.comp
 import { UpdateStudentComponent } from './Component/update-student/update-student.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'register', pathMatch:'full'},
+  {path:'', redirectTo:'/register', pathMatch:'full'},
   {path:'register', component:RegisterStudentComponent},
   {path:'view', component:ViewStudentComponent},
   {path:'view/:id', component:ViewStudentComponent},

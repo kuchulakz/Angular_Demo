@@ -27,14 +27,17 @@ export class ViewStudentComponent
 
   viewById(id:any)
   {
+    
     console.log("id is"+id)
-    this.ss.viewStudentsById(id).subscribe(r=>this.data$=of([r]));
     this.singleStudent=true;
+    this.ss.viewStudentsById(id).subscribe(r=>this.data$=of([r]));
+    // this.rou.navigate([`/view/${id}`])
+    
   }
 
   updateStudent(id: any)
   {
-    this.rou.navigate(`[update]${id}`)
+    // this.rou.navigate(`[update]${id}`)
   }
 
   deleteStudent(id:any)
