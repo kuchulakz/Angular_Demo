@@ -25,6 +25,7 @@ export class RegisterStudentComponent implements OnInit
       this.ss.registerStudent(this.fg.value).subscribe(
         (data) => {this.students = data}
       )
+      this.fg.reset()
     }
   }
 

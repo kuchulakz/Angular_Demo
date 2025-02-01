@@ -1,13 +1,6 @@
 {
   "student": [
     {
-      "id": "0bfb",
-      "name": "nishnt@",
-      "mail": "n@gmail.com",
-      "phone": "8372837932",
-      "dob": "2002-02-02"
-    },
-    {
       "id": "9a24",
       "name": "Lexi",
       "mail": "l@gmail.com",
@@ -15,11 +8,25 @@
       "dob": "2001-11-16"
     },
     {
-      "id": "db96",
-      "name": "chris",
-      "mail": "c@gmail.com",
-      "phone": "7123456787",
-      "dob": "2001-12-12"
+      "id": "0dde",
+      "name": "Nandu",
+      "mail": "n@gmail.com",
+      "phone": "8123456789",
+      "dob": "1998-10-09"
+    },
+    {
+      "id": "d53d",
+      "name": "Ammu",
+      "mail": "a@gmail.com",
+      "phone": "8123456789",
+      "dob": "2001-01-01"
+    },
+    {
+      "id": "7cd8",
+      "name": "Deva",
+      "mail": "d@gmail.com",
+      "phone": "6123456789",
+      "dob": "2001-01-19"
     }
   ]
 }

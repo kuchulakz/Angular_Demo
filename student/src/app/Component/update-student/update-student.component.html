@@ -1,0 +1,30 @@
+<h1>Update Studnet</h1>
+<form [formGroup]="fg" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" placeholder="Enter Name" formControlName="name"><br>
+    <div *ngIf="fg.get('name')?.touched">
+        <small *ngIf="fg.get('name')?.hasError('required')">Name is required</small>
+    </div><br>
+    <label for="email">Email:</label>
+    <input type="email" placeholder="Enter Email" formControlName="mail"><br>
+    <div *ngIf="fg.get('mail')?.invalid && (fg.get('mail')?.touched || fg.get('mail')?.dirty)" >
+        <small *ngIf="fg.get('mail')?.hasError('required') || fg.get('mail')?.hasError('email')">Email is required</small><br>
+        <small>Email should be abc@gmail.com</small>
+    </div><br>
+    <label for="phone">Phone:</label>
+    <input type="text" placeholder="Enter Phone Number" formControlName="phone"><br>
+    <div *ngIf="fg.get('phone')?.invalid && (fg.get('phone')?.touched || fg.get('phone')?.dirty)">
+        <small *ngIf="fg.get('phone')?.hasError('required')">Phone Number is required</small><br>
+        <small *ngIf="fg.get('phone')?.hasError('ret')">Phone number should be 10 digit with 1st digit between 6-9 </small>
+    </div><br>
+    <label for="dob">Date Of Birth:</label>
+    <input type="text" placeholder="Enter Date Of Birth" formControlName="dob"><br>
+    <div *ngIf="fg.get('dob')?.invalid && (fg.get('dob')?.touched || fg.get('dob')?.dirty)">
+        <small *ngIf="fg.get('dob')?.hasError('required')">Date of Birth is required</small><br>
+        <small *ngIf="fg.get('dob')?.hasError('ret')">Date of Birth should be in yyyy-mm-dd format </small>
+    </div><br>
+    <input type="submit" value="Submit" [disabled]="fg.invalid">
+</form>
+<div *ngIf="status">
+    <h4>Successfully Updated</h4>
+</div>

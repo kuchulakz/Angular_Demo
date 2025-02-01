@@ -9,12 +9,11 @@ import { Observable } from 'rxjs';
 export class StudentService {
 
   apiUrl='https://stunning-system-6xg5r9x9x4r3x4x4-3000.app.github.dev/student'
-  reg!: Register[]
 
   constructor(private http:HttpClient) 
   { }
 
-  registerStudent(r:Register):Observable<any>
+  registerStudent(r: Register):Observable<any>
   {
     return this.http.post(this.apiUrl,r)
   }
@@ -24,8 +23,18 @@ export class StudentService {
     return this.http.get(this.apiUrl)
   }
 
-  delete(id:any):Observable<void>
+  viewStudentsById(id: any):Observable<any>
   {
-    return this.http.delete<void>(`this.apiUrl/${id}`)
+    return this.http.get(this.apiUrl+"/"+id)
+  }
+
+  deleteStudent(id:any):Observable<void>
+  {
+    return this.http.delete<void>(this.apiUrl+"/"+id)
+  }
+
+  updateStudent(r: Register):Observable<any>
+  {
+    return this.http.put(this.apiUrl+"/"+r.id,r)
   }
 }

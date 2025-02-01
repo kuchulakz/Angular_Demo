@@ -7,12 +7,14 @@ import { RegisterStudentComponent } from './Component/register-student/register-
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ViewStudentComponent } from './Component/view-student/view-student.component';
+import { UpdateStudentComponent } from './Component/update-student/update-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterStudentComponent,
-    ViewStudentComponent
+    ViewStudentComponent,
+    UpdateStudentComponent
   ],
   imports: [
     BrowserModule,

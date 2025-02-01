@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { filter, Observable, of } from 'rxjs';
 import { StudentService } from 'src/app/Service/student.service';
 
@@ -11,8 +12,9 @@ export class ViewStudentComponent
 {
   data$: Observable<any[]> = of([])
   filteredData$: Observable<any[]> = of([])
+  singleStudent: boolean= false
 
-  constructor(private ss:StudentService)
+  constructor(private ss:StudentService, private rou:Router)
   {
     this.viewAllStudent();
   }
@@ -23,11 +25,25 @@ export class ViewStudentComponent
     this.filteredData$= this.data$
   }
 
+  viewById(id:any)
+  {
+    console.log("id is"+id)
+    this.ss.viewStudentsById(id).subscribe(r=>this.data$=of([r]));
+    this.singleStudent=true;
+  }
+
+  updateStudent(id: any)
+  {
+    this.rou.navigate(`[update]${id}`)
+  }
+
   deleteStudent(id:any)
   {
-    this.ss.delete(id).subscribe
+    console.log(id)
+    this.ss.deleteStudent(id).subscribe
     (
-      () => {this.viewAllStudent()}
+      (data)=>{this.viewAllStudent()}
     )
   }
+  
 }

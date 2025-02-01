@@ -1,19 +1,33 @@
-<h2>Student List</h2>
-<table border="1px">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>DOB</th>
-        <th>Action</th>
-    </tr>
-    <tr *ngFor="let st of (data$ | async)">
-        <td>{{ st.id }}</td>
-        <td>{{ st.name }}</td>
-        <td>{{ st.mail }}</td>
-        <td>{{ st.phone }}</td>
-        <td>{{ st.dob }}</td>
-        <td><button type="button" (click)="deleteStudent(st.id)">Delete</button></td>
-    </tr>
-</table>
+<div *ngIf="!singleStudent">
+    <h2>Student List</h2>
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>DOB</th>
+            <th colspan="3">Action</th>
+        </tr>
+        <tr *ngFor="let st of (data$ | async)">
+            <td>{{ st.id }}</td>
+            <td>{{ st.name }}</td>
+            <td>{{ st.mail }}</td>
+            <td>{{ st.phone }}</td>
+            <td>{{ st.dob }}</td>
+            <td><button type="button" (click)="viewById(st.id)">View</button></td>
+            <td><button type="button" (click)="updateStudent(st.id)">Update</button></td>
+            <td><button type="button" (click)="deleteStudent(st.id)">Delete</button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="singleStudent">
+    <div  *ngFor="let st of data$ | async">
+        <p>ID: {{ st.id }}</p>
+        <p>Name: {{ st.name }}</p>
+        <p>Email: {{ st.mail }}</p>
+        <p>Phone Number: {{ st.phone }}</p>
+        <p>Date of Birth: {{ st.dob }}</p>
+    </div>
+</div>
